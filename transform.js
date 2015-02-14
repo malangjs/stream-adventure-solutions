@@ -1,10 +1,10 @@
 var through = require('through');
 
 process.stdin.pipe(through(
-	function write(buffer) {
+	function(buffer) {
 		this.queue(buffer.toString().toUpperCase());
 	},
-	function end() {
+	function() {
 		this.queue(null);
 	}
 )).pipe(process.stdout);
